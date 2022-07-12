@@ -1,0 +1,19 @@
+services:
+  backend:
+    build:
+      context: backend
+      dockerfile: src/main/docker/Dockerfile.native-micro
+    ports:
+      - 8080:8080
+    networks:
+      - alticci_net
+  frontend:
+    build:
+      context: frontend
+    ports:
+      - 80:80
+    networks:
+      - alticci_net
+
+networks:
+  alticci_net:
